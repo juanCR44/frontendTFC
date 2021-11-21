@@ -1,6 +1,16 @@
-<p>hola {{msg}}</p>
+<div class="header">
+  <img src="assets/logo.jpg" alt="logo" class="logo">
+  <main class="form">
+    <h1 class="form__title">Inserta el CSV</h1>
+    <form class="form__content">
+      <input type="file" id="file" (change)="changeListener($event)">
+      <!-- <a href="#" *ngIf="buttonVisible" (click)="uploadFile()">Subir</a> -->
+      <button class="button" type="submit" *ngIf="buttonVisible" (click)="uploadFile()">Subir</button>
+    </form>
 
-<form>
-    <input type="file" id="file" (change)="changeListener($event)">
-    <button type="submit" *ngIf="buttonVisible" (click)="uploadFile()">Subir</button>
-</form>
+    <div *ngIf="downloadVisible" class="download__item">
+      <h4 class="form__title">¡Descarga la predicción!</h4>
+      <button class="button">Descagar</button>
+    </div>
+  </main>
+</div>

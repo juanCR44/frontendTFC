@@ -12,8 +12,9 @@ export class AppComponent {
   post = '';
   fileString = '';
   buttonVisible = false;
+  downloadVisible = false;
   msg: string = '';
-  uploadForm!: FormGroup; 
+  uploadForm!: FormGroup;
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
@@ -55,7 +56,7 @@ export class AppComponent {
     const formData = new FormData();
     formData.append('file', this.uploadForm.get('profile')!.value);
     this.userService.addFile(formData).subscribe(r=>console.log(r));
-
+    this.downloadVisible = true;
     /*this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
