@@ -50,11 +50,6 @@ body {
     color: white;
 }
 
-.enfermedad.active {
-    background-color: red;
-    color: white;
-}
-
 .button__container {
     display: flex;
     justify-content: center;

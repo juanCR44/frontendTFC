@@ -26,6 +26,7 @@ export class AppComponent {
   post = '';
   fileString = '';
   buttonVisible = false;
+  downloadVisible = false;
   msg: string = '';
   uploadForm!: FormGroup;
   listaSintoma: string[] = [];
@@ -51,7 +52,11 @@ export class AppComponent {
   uploadFile() {
     const formData = new FormData();
     formData.append('file', this.uploadForm.get('profile')!.value);
+
     this.userService.addFile(formData).subscribe(r => console.log(r));
+
+    this.userService.addFile(formData).subscribe(r=>console.log(r));
+    this.downloadVisible = true;
   }
 
 
