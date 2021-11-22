@@ -1,6 +1,33 @@
-<p>hola {{msg}}</p>
+<body>
+    <div class="header ">
+        <main class="form">
+            <h1 class="form__title">Selecciona tus síntomas</h1>
+            <div class="enfermedades">
+                <p class="enfermedad" (click)="seleccionSintoma('tos')"> Tos</p>
+                <p class="enfermedad" (click)="seleccionSintoma('cefalea')"> Cefalea</p>
+                <p class="enfermedad" (click)="seleccionSintoma('congestion_nasal')"> Congestion Nasal</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dificultad_respiratoria')"> Dificultad Respiratoria</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dolor_garganta')"> Dolor de Garganta</p>
+                <p class="enfermedad" (click)="seleccionSintoma('fiebre')"> Fiebre</p>
+                <p class="enfermedad" (click)="seleccionSintoma('diarrea')"> Diarrea</p>
+                <p class="enfermedad" (click)="seleccionSintoma('nauseas')"> Nauseas</p>
+                <p class="enfermedad" (click)="seleccionSintoma('anosmia_hiposmia')"> Anosmia Hispomia</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dolor_abdominal')"> Dolor Abdominal</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dolor_articulaciones')"> Dolor de Articulaciones</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dolor_muscular')"> Dolor Muscular</p>
+                <p class="enfermedad" (click)="seleccionSintoma('dolor_pecho')"> Dolor de Pecho</p>
+                <p class="enfermedad" (click)="seleccionSintoma('otros_sintomas')"> Otros Síntomas </p>
+            </div>
+            <div class="button__container">
+                <a id="result" class="button">Resultados</a>
+            </div>
+        </main>
 
-<form>
-    <input type="file" id="file" (change)="changeListener($event)">
-    <button type="submit" *ngIf="buttonVisible" (click)="uploadFile()">Subir</button>
-</form>
+        <div id="message" class="show-message">
+            <div class="message">
+                <p id="text-message">Lastimosamente tienes covid :C</p>
+                <a id="back-button" class="button button-2">Go Back</a>
+            </div>
+        </div>
+    </div>
+</body>
