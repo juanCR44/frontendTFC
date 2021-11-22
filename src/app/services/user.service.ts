@@ -31,6 +31,6 @@ export class UserService {
     return this.http.post(this.urlBase + '/upload', file, {headers:this.httpHeadersFile});
   }
   enviarSintoma(sintoma:string[]):Observable<Object>{
-    return this.http.post(this.urlBase + '/upload', sintoma, {headers:this.httpHeaders});
+    return this.http.post(this.urlBase + '/sintoma', sintoma, {headers:this.httpHeaders});
   }
 }
