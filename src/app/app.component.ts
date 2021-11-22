@@ -2,6 +2,17 @@ import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+$(document).ready(function () {
+  $('.enfermedad').click(function () {
+    if ($(this).attr('class')?.split(' ').length === 1) {
+      $(this).addClass('color')
+    }
+    else {
+      $(this).removeClass('color')
+    }
+  });
+});
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
