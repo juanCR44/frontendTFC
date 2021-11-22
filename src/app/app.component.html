@@ -1,16 +1,103 @@
-<div class="header">
-  <img src="assets/logo.jpg" alt="logo" class="logo">
-  <main class="form">
-    <h1 class="form__title">Inserta el CSV</h1>
-    <form class="form__content">
-      <input type="file" id="file" (change)="changeListener($event)">
-      <!-- <a href="#" *ngIf="buttonVisible" (click)="uploadFile()">Subir</a> -->
-      <button class="button" type="submit" *ngIf="buttonVisible" (click)="uploadFile()">Subir</button>
-    </form>
+.header {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../assets/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-    <div *ngIf="downloadVisible" class="download__item">
-      <h4 class="form__title">¡Descarga la predicción!</h4>
-      <button class="button">Descagar</button>
-    </div>
-  </main>
-</div>
+.form {
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form__title {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.enfermedades {
+    width: min(90%, 1000px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.enfermedad {
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+    padding: 10px 0;
+    margin: 0;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+body {
+    margin: 0;
+}
+
+.color {
+    background-color: red;
+    color: white;
+}
+
+.button__container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 10px 100px;
+    border-radius: 10px;
+}
+
+
+/* Message */
+
+.show-message {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.message {
+    text-align: center;
+    background-color: black;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.button-2 {
+    background-color: white;
+    color: black;
+}
+
+.message p {
+    color: white;
+    font-size: 30px;
+}
+
+.show {
+    display: inline-flex;
+}
