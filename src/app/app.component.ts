@@ -55,4 +55,8 @@ export class AppComponent {
       this.listaSintoma.push(sintoma)
     }
   }
+
+  enviarSintoma(){
+    this.userService.enviarSintoma(this.listaSintoma).subscribe(r=>console.log(r))
+  }
 }
