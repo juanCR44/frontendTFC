@@ -3,7 +3,6 @@ import { UserService } from './services/user.service';
 import * as $ from "jquery";
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-
 $(document).ready(function () {
   $('.enfermedad').click(function () {
     if ($(this).attr('class')?.split(' ').length === 1) {
@@ -14,7 +13,6 @@ $(document).ready(function () {
     }
   });
 });
-
 
 @Component({
   selector: 'app-root',
