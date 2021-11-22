@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
+import * as $ from "jquery";
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 $(document).ready(function () {
