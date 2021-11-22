@@ -30,9 +30,7 @@ export class UserService {
   addFile(file:any):Observable<Object>{
     return this.http.post(this.urlBase + '/upload', file, {headers:this.httpHeadersFile});
   }
-/*
-  createPublicador(publicador: object): Observable<Object>{
-    console.log("Enviando rest create...")
-    return this.http.post(this.urlBase + '/registrarpublicador', publicador, {headers:this.httpHeaders});
-  }*/
+  enviarSintoma(sintoma:string[]):Observable<Object>{
+    return this.http.post(this.urlBase + '/upload', sintoma, {headers:this.httpHeaders});
+  }
 }
