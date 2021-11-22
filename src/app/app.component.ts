@@ -61,5 +61,4 @@ export class AppComponent {
       (err) => console.log(err)
     );*/
   }
-
 }
