@@ -68,5 +68,10 @@ export class AppComponent {
     else{
       this.listaSintoma.push(sintoma)
     }
+    console.log(this.listaSintoma)
+  }
+
+  enviarSintoma(){
+    this.userService.enviarSintoma(this.listaSintoma).subscribe(r=>console.log(r))
   }
 }
