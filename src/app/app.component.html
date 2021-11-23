@@ -23,10 +23,10 @@
             </div>
         </main>
 
-        <div id="message" class="show-message" *ngIf="showMessage">
+        <div id="message" class="show-message" *ngIf="showMessage" (click)="showMessage = false">
             <div class="message">
                 <p id="text-message">{{message}}</p>
-                <a id="back-button" class="button button-2">Go Back</a>
+                <a id="back-button" class="button button-2" (click)="showMessage = false">Go Back</a>
             </div>
         </div>
     </div>

@@ -13,6 +13,15 @@ $(document).ready(function () {
       $(this).removeClass('color')
     }
   });
+
+  $("#back-button").click(function(){
+    $("#message").removeClass("show");
+  })
+
+  $("#message").click(function(){
+    $("#message").removeClass("show");
+  })
+
 });
 
 @Component({
@@ -80,10 +89,11 @@ export class AppComponent {
 
 
   enviarSintoma() {
+
     this.userService.enviarSintoma(this.listaSintoma).subscribe(
       res => {
         this.showMessage = true
-        this.message = "Hola"
+        this.message = res.toString()
         console.log(res)
       },
       err => {
