@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import * as $ from "jquery";
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {fakeAsync} from "@angular/core/testing";
 
 $(document).ready(function () {
   $('.enfermedad').click(function () {
@@ -20,16 +21,16 @@ $(document).ready(function () {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  titulo = '';
+  title = '';
   post = '';
-  fileString = '';
   buttonVisible = false;
   downloadVisible = false;
   msg: string = '';
   uploadForm!: FormGroup;
   listaSintoma: string[] = [];
-  condicion = false;
-  respuestaSintoma = ""
+  send = false;
+  showMessage = false;
+  message = '';
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
@@ -41,6 +42,10 @@ export class AppComponent {
 
   changeListener($event: Event): void {
     this.readThis($event.target)
+  }
+
+  listaVacia(): boolean{
+    return this.listaSintoma.length == 0;
   }
 
   readThis(inputValue: any) {
@@ -69,26 +74,20 @@ export class AppComponent {
       this.listaSintoma.push(sintoma)
     }
     console.log(this.listaSintoma)
+    this.send = !this.listaVacia();
+    console.log("send",this.send)
   }
 
 
   enviarSintoma() {
-    this.condicion = false;
     this.userService.enviarSintoma(this.listaSintoma).subscribe(
       res => {
-        console.log("bien")
+        this.showMessage = true
+        this.message = "Hola"
+        console.log(res)
       },
       err => {
         console.log(err);
-      },
-      () => {
-        setTimeout(() => {
-          this.userService.getSintoma().subscribe(r => {
-              console.log(r)
-              this.respuestaSintoma = r
-              this.condicion = true;
-          })
-        }, 10000);
       }
     );
   }
