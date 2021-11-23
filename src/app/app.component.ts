@@ -84,10 +84,11 @@ export class AppComponent {
       () => {
         setTimeout(() => {
           this.userService.getSintoma().subscribe(r => {
-            this.respuestaSintoma = r
+              console.log(r)
+              this.respuestaSintoma = r
               this.condicion = true;
           })
-        }, 9000);
+        }, 10000);
       }
     );
   }
