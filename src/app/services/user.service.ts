@@ -21,4 +21,8 @@ export class UserService {
   enviarSintoma(sintoma:string[]):Observable<Object>{
     return this.http.post(this.urlBase + '/sintoma', sintoma, {headers:this.httpHeaders});
   }
+
+  getSintoma():Observable<any>{
+    return this.http.get(this.urlBase + '/respuesta');
+  }
 }

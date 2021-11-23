@@ -19,7 +19,8 @@
                 <p class="enfermedad" (click)="seleccionSintoma('otros_sintomas')"> Otros Síntomas </p>
             </div>
             <div class="button__container">
-                <a id="result" class="button" (click)="enviarSintoma()">Resultados</a>
+                <a id="result" *ngIf="!condicion" class="button" (click)="enviarSintoma()">Resultados</a>
+                <a id="result" *ngIf="condicion" class="button">{{respuestaSintoma}}</a>
             </div>
         </main>
 

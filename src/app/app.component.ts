@@ -28,6 +28,8 @@ export class AppComponent {
   msg: string = '';
   uploadForm!: FormGroup;
   listaSintoma: string[] = [];
+  condicion = false;
+  respuestaSintoma = ""
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
@@ -53,7 +55,7 @@ export class AppComponent {
 
     this.userService.addFile(formData).subscribe(r => console.log(r));
 
-    this.userService.addFile(formData).subscribe(r=>console.log(r));
+    this.userService.addFile(formData).subscribe(r => console.log(r));
     this.downloadVisible = true;
   }
 
@@ -63,13 +65,31 @@ export class AppComponent {
     if (contenido > -1) {
       this.listaSintoma.splice(contenido, 1);
     }
-    else{
+    else {
       this.listaSintoma.push(sintoma)
     }
     console.log(this.listaSintoma)
   }
 
-  enviarSintoma(){
-    this.userService.enviarSintoma(this.listaSintoma).subscribe(r=>console.log(r))
+
+  enviarSintoma() {
+    this.condicion = false;
+    this.userService.enviarSintoma(this.listaSintoma).subscribe(
+      res => {
+        console.log("bien")
+      },
+      err => {
+        console.log(err);
+      },
+      () => {
+        setTimeout(() => {
+          this.userService.getSintoma().subscribe(r => {
+            this.respuestaSintoma = r
+              this.condicion = true;
+          })
+        }, 9000);
+      }
+    );
   }
+
 }
