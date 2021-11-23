@@ -3,6 +3,7 @@ import { UserService } from './services/user.service';
 import * as $ from "jquery";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {fakeAsync} from "@angular/core/testing";
+import {Response} from "./services/response";
 
 $(document).ready(function () {
   $('.enfermedad').click(function () {
@@ -91,10 +92,10 @@ export class AppComponent {
   enviarSintoma() {
 
     this.userService.enviarSintoma(this.listaSintoma).subscribe(
-      res => {
+      (res: Response) => {
         this.showMessage = true
-        this.message = res.toString()
-        console.log(res)
+        this.message = res.response
+        console.log(res.response)
       },
       err => {
         console.log(err);

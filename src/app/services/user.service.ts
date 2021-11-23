@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ObservedValueOf } from 'rxjs';
+import {Response} from "./response";
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class UserService {
   addFile(file:any):Observable<Object>{
     return this.http.post(this.urlBase + '/upload', file, {headers:this.httpHeadersFile});
   }
-  enviarSintoma(sintoma:string[]):Observable<Object>{
-    return this.http.post(this.urlBase + '/sintoma', sintoma, {headers:this.httpHeaders});
+  enviarSintoma(sintoma:string[]):Observable<Response>{
+    return this.http.post<Response>(this.urlBase + '/sintoma', sintoma, {headers:this.httpHeaders});
   }
 
   getSintoma():Observable<any>{
