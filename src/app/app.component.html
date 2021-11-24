@@ -20,7 +20,9 @@
             </div>
             <div class="button__container">
                 <a id="result" *ngIf="send" class="button" (click)="enviarSintoma()">Resultados</a>
+              <div class="preloader" *ngIf="loading"></div>
             </div>
+
         </main>
 
         <div id="message" class="show-message" *ngIf="showMessage" (click)="showMessage = false">

@@ -41,6 +41,7 @@ export class AppComponent {
   send = false;
   showMessage = false;
   message = '';
+  loading = false;
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
@@ -90,9 +91,10 @@ export class AppComponent {
 
 
   enviarSintoma() {
-
+    this.loading = true
     this.userService.enviarSintoma(this.listaSintoma).subscribe(
       (res: Response) => {
+        this.loading = false
         this.showMessage = true
         this.message = res.response
         console.log(res.response)
